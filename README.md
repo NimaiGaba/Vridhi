@@ -140,22 +140,22 @@ npm install
 
 3. **Start Backend Servers (in separate terminals)**
 
-**Terminal A: Forecast & Stock Data (FastAPI)**
+**Terminal A: Forecast,Stock Data and Chatbot (FastAPI)**
 
 ```bash
-cd backend
+
 uvicorn connect:app --reload
 ```
 
 **Terminal B: News API (Node.js)**
 
 ```bash
-cd server
+cd backend
 node server.js
 ```
 
 6. **Open the app in your browser**
 
 ```bash
-http://localhost:5173
+http://localhost:8000
 ```
