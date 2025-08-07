@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login/Signup</title>
+  <!-- Define the callback BEFORE loading Google -->
+  <script>
+    window.handleGoogleLogin = async function (response) {
+      console.log("Google response:", response);
+      const idToken = response.credential;
+      if (!idToken) {
+        alert("Google sign-in failed: No token.");
+        return;
+      }
+      try {
+        // Dynamically import Firebase modules
+        const { auth } = await import("/login_page/firebase-config.js");
+        const { GoogleAuthProvider, signInWithCredential } = await import("https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js");
+
+        const credential = GoogleAuthProvider.credential(idToken);
+        const result = await signInWithCredential(auth, credential);
+        console.log("Signed in:", result.user);
+        window.location.href = "/after_login/frontend/UI.html";
+      } catch (err) {
+        console.error("Google Sign-In Error:", err);
+        alert("Google login failed: " + err.message);
+      }
+    };
+  </script>
+
+  <!-- Now load Google GSI -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/login_page/page.css">
+</head>
+
+<body>
+  <div class="video-container">
+    <video class="video-bg" autoplay muted loop>
+      <source src="224b27eb-45c5-4af2-aa8d-baa364715b64.mp4.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+  <div class="overlay"></div>
+
+  <div class="auth-container" id="authBox">
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+
+    <form id="signupForm" style="display: none;">
+      <input type="text" id="signupFullName" placeholder="Full Name" required />
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p id="message" style="margin-top: 15px; font-weight: bold;"></p>
+
+    <div class="toggle-btn" style="margin-top: 20px;">
+      <span id="toggleText">Don’t have an account?</span>
+      <button id="toggleMode">Sign up</button>
+    </div>
+
+    <div class="google-login-wrapper" style="margin-top: 20px;">
+      <div id="g_id_onload" data-client_id="232982857770-g3qoa6qiug5v8e6uj6oj7uk4k19cu2jm.apps.googleusercontent.com"
+        data-context="signin" data-ux_mode="popup" data-callback="handleGoogleLogin" data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+        data-text="sign_in_with" data-size="large" data-logo_alignment="left">
+      </div>
+    </div>
+
+    <button id="logoutButton" style="display: none; margin-top: 20px;">Logout</button>
+
+  </div>
+
+  <script type="module" src="/login_page/firebase-config.js"></script>
+  <script src="/login_page/page.js" type="module"></script>
+</body>
+
+</html>

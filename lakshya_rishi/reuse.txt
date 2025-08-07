@@ -1,0 +1,259 @@
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+  <section id="home">
+    <h1>Step Into the Financial World</h1>
+    <p>Real-Time Data & Insights at Your Fingertips</p>
+    <button onclick="location.href='Login page/page.html'" class="btn-3d">Get Started</button>
+  </section>
+  
+  <section id="features">
+    <h1>Our Features</h1>
+    <div class="features">
+      <div class="feature-card">
+        <div class="card-face card-front">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Charting">
+          <h3>Advanced Charting</h3>
+          <p>Technical indicators and analytics for informed decisions.</p>
+        </div>
+        <div class="card-face card-back">
+          <h3>Advanced Tools</h3>
+          <p>50+ technical indicators</p>
+          <p>Real-time data</p>
+          <p>Customizable charts</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="card-face card-front">
+          <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio">
+          <h3>Portfolio Manager</h3>
+          <p>Track investments, gains, and allocations with ease.</p>
+        </div>
+        <div class="card-face card-back">
+          <h3>Portfolio Features</h3>
+          <p>Performance tracking</p>
+          <p>Asset allocation</p>
+          <p>Risk analysis</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="card-face card-front">
+          <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="UI">
+          <h3>User Interface</h3>
+          <p>Clean, intuitive and responsive design.</p>
+        </div>
+        <div class="card-face card-back">
+          <h3>UI Features</h3>
+          <p>Dark/light mode</p>
+          <p>Custom layouts</p>
+          <p>Keyboard shortcuts</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="card-face card-front">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Testing">
+          <h3>Strategy Testing</h3>
+          <p>Test your trading ideas before going live.</p>
+        </div>
+        <div class="card-face card-back">
+          <h3>Testing Features</h3>
+          <p>Backtesting</p>
+          <p>Paper trading</p>
+          <p>Performance metrics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about">
+    <h1>About Our Team </h1>
+    <div class="about">
+      <div class="about-card">
+        <div class="card-face card-front">
+          <img src="videos/WhatsApp Image 2025-06-27 at 14.17.09_4c420230.jpg" alt="Nimai Gaba.image">
+          <h4>Nimai Gaba</h4>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, aspernatur.</p>
+        </div>
+        <div class="card-face card-back">
+          <h4>Advanced Tools</h4>
+          <p>50+ technical indicators</p>
+          <p>Real-time data</p>
+          <p>Customizable charts</p>
+        </div>
+      </div>
+      
+      <div class="about-card">
+        <div class="card-face card-front">
+          <img src="videos/WhatsApp 27-06-2025 14_15_54.png" alt="Lakshya Shukla.image">
+          <h4>Lakshya Shukla</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, ex?</p>
+        </div>
+        <div class="card-face card-back">
+          <h4>Portfolio Features</h4>
+          <p>Performance tracking</p>
+          <p>Asset allocation</p>
+          <p>Risk analysis</p>
+        </div>
+      </div>
+      
+      <div class="about-card">
+        <div class="card-face card-front">
+          <img src="videos/no-dp-pic_23.webp" alt="Lakshya Rishi.image">
+          <h4>Lakshya Rishi</h4>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, quasi.</p>
+        </div>
+        <div class="card-face card-back">
+          <h4>UI Features</h4>
+          <p>Dark/light mode</p>
+          <p>Custom layouts</p>
+          <p>Keyboard shortcuts</p>
+        </div>
+      </div>
+      
+      <div class="about-card">
+        <div class="card-face card-front">
+          <img src="videos/no-dp-pic_23.webp" alt="Aryamama.image">
+          <h4>Arymama Singh </h4>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, ex!.</p>
+        </div>
+        <div class="card-face card-back">
+          <h4>Testing Features</h4>
+          <p>Backtesting</p>
+          <p>Paper trading</p>
+          <p>Performance metrics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact">
+    <h1>Get In Touch</h1>
+    <p>Email us at contact@stockscreener.com or call 123-456-7890</p>
+    <button class="btn-3d">Request Demo</button>
+  </section>
+  https://zelt.app/assets/img/home/hero/sequence/1.webp
+https://zelt.app/assets/img/home/hero/sequence/2.webp
+https://zelt.app/assets/img/home/hero/sequence/3.webp
+https://zelt.app/assets/img/home/hero/sequence/4.webp
+https://zelt.app/assets/img/home/hero/sequence/5.webp
+https://zelt.app/assets/img/home/hero/sequence/6.webp
+https://zelt.app/assets/img/home/hero/sequence/7.webp
+https://zelt.app/assets/img/home/hero/sequence/8.webp
+https://zelt.app/assets/img/home/hero/sequence/9.webp
+https://zelt.app/assets/img/home/hero/sequence/10.webp
+https://zelt.app/assets/img/home/hero/sequence/11.webp
+https://zelt.app/assets/img/home/hero/sequence/12.webp
+https://zelt.app/assets/img/home/hero/sequence/13.webp
+https://zelt.app/assets/img/home/hero/sequence/14.webp
+https://zelt.app/assets/img/home/hero/sequence/15.webp
+https://zelt.app/assets/img/home/hero/sequence/16.webp
+https://zelt.app/assets/img/home/hero/sequence/17.webp
+https://zelt.app/assets/img/home/hero/sequence/18.webp
+https://zelt.app/assets/img/home/hero/sequence/19.webp
+https://zelt.app/assets/img/home/hero/sequence/20.webp
+https://zelt.app/assets/img/home/hero/sequence/21.webp
+https://zelt.app/assets/img/home/hero/sequence/22.webp
+https://zelt.app/assets/img/home/hero/sequence/23.webp
+https://zelt.app/assets/img/home/hero/sequence/24.webp
+https://zelt.app/assets/img/home/hero/sequence/25.webp
+https://zelt.app/assets/img/home/hero/sequence/26.webp
+https://zelt.app/assets/img/home/hero/sequence/27.webp
+https://zelt.app/assets/img/home/hero/sequence/28.webp
+https://zelt.app/assets/img/home/hero/sequence/29.webp
+https://zelt.app/assets/img/home/hero/sequence/30.webp
+https://zelt.app/assets/img/home/hero/sequence/31.webp
+https://zelt.app/assets/img/home/hero/sequence/32.webp
+https://zelt.app/assets/img/home/hero/sequence/33.webp
+https://zelt.app/assets/img/home/hero/sequence/34.webp
+https://zelt.app/assets/img/home/hero/sequence/35.webp
+https://zelt.app/assets/img/home/hero/sequence/36.webp
+https://zelt.app/assets/img/home/hero/sequence/37.webp
+https://zelt.app/assets/img/home/hero/sequence/38.webp
+https://zelt.app/assets/img/home/hero/sequence/39.webp
+https://zelt.app/assets/img/home/hero/sequence/40.webp
+https://zelt.app/assets/img/home/hero/sequence/41.webp
+https://zelt.app/assets/img/home/hero/sequence/42.webp
+https://zelt.app/assets/img/home/hero/sequence/43.webp
+https://zelt.app/assets/img/home/hero/sequence/44.webp
+https://zelt.app/assets/img/home/hero/sequence/45.webp
+https://zelt.app/assets/img/home/hero/sequence/46.webp
+https://zelt.app/assets/img/home/hero/sequence/47.webp
+https://zelt.app/assets/img/home/hero/sequence/48.webp
+https://zelt.app/assets/img/home/hero/sequence/49.webp
+https://zelt.app/assets/img/home/hero/sequence/50.webp
+https://zelt.app/assets/img/home/hero/sequence/51.webp
+https://zelt.app/assets/img/home/hero/sequence/52.webp
+https://zelt.app/assets/img/home/hero/sequence/53.webp
+https://zelt.app/assets/img/home/hero/sequence/54.webp
+https://zelt.app/assets/img/home/hero/sequence/55.webp
+https://zelt.app/assets/img/home/hero/sequence/56.webp
+https://zelt.app/assets/img/home/hero/sequence/57.webp
+https://zelt.app/assets/img/home/hero/sequence/58.webp
+https://zelt.app/assets/img/home/hero/sequence/59.webp
+https://zelt.app/assets/img/home/hero/sequence/60.webp
+https://zelt.app/assets/img/home/hero/sequence/61.webp
+https://zelt.app/assets/img/home/hero/sequence/62.webp
+https://zelt.app/assets/img/home/hero/sequence/63.webp
+https://zelt.app/assets/img/home/hero/sequence/64.webp
+https://zelt.app/assets/img/home/hero/sequence/65.webp
+https://zelt.app/assets/img/home/hero/sequence/66.webp
+https://zelt.app/assets/img/home/hero/sequence/67.webp
+https://zelt.app/assets/img/home/hero/sequence/68.webp
+https://zelt.app/assets/img/home/hero/sequence/69.webp
+https://zelt.app/assets/img/home/hero/sequence/70.webp
+https://zelt.app/assets/img/home/hero/sequence/71.webp
+https://zelt.app/assets/img/home/hero/sequence/72.webp
+https://zelt.app/assets/img/home/hero/sequence/73.webp
+https://zelt.app/assets/img/home/hero/sequence/74.webp
+https://zelt.app/assets/img/home/hero/sequence/75.webp
+https://zelt.app/assets/img/home/hero/sequence/76.webp
+https://zelt.app/assets/img/home/hero/sequence/77.webp
+https://zelt.app/assets/img/home/hero/sequence/78.webp
+https://zelt.app/assets/img/home/hero/sequence/79.webp
+https://zelt.app/assets/img/home/hero/sequence/80.webp
+https://zelt.app/assets/img/home/hero/sequence/81.webp
+https://zelt.app/assets/img/home/hero/sequence/82.webp
+https://zelt.app/assets/img/home/hero/sequence/83.webp
+https://zelt.app/assets/img/home/hero/sequence/84.webp
+https://zelt.app/assets/img/home/hero/sequence/85.webp
+https://zelt.app/assets/img/home/hero/sequence/86.webp
+https://zelt.app/assets/img/home/hero/sequence/87.webp
+https://zelt.app/assets/img/home/hero/sequence/88.webp
+https://zelt.app/assets/img/home/hero/sequence/89.webp
+https://zelt.app/assets/img/home/hero/sequence/90.webp
+https://zelt.app/assets/img/home/hero/sequence/91.webp
+https://zelt.app/assets/img/home/hero/sequence/92.webp
+https://zelt.app/assets/img/home/hero/sequence/93.webp
+https://zelt.app/assets/img/home/hero/sequence/94.webp
+https://zelt.app/assets/img/home/hero/sequence/95.webp
+https://zelt.app/assets/img/home/hero/sequence/96.webp
+https://zelt.app/assets/img/home/hero/sequence/97.webp
+https://zelt.app/assets/img/home/hero/sequence/98.webp
+https://zelt.app/assets/img/home/hero/sequence/99.webp
+https://zelt.app/assets/img/home/hero/sequence/100.webp
+https://zelt.app/assets/img/home/hero/sequence/101.webp
+https://zelt.app/assets/img/home/hero/sequence/102.webp
+https://zelt.app/assets/img/home/hero/sequence/103.webp
+https://zelt.app/assets/img/home/hero/sequence/104.webp
+https://zelt.app/assets/img/home/hero/sequence/105.webp
+https://zelt.app/assets/img/home/hero/sequence/106.webp
+https://zelt.app/assets/img/home/hero/sequence/107.webp
+https://zelt.app/assets/img/home/hero/sequence/108.webp
+https://zelt.app/assets/img/home/hero/sequence/109.webp
+https://zelt.app/assets/img/home/hero/sequence/110.webp
+https://zelt.app/assets/img/home/hero/sequence/111.webp
+https://zelt.app/assets/img/home/hero/sequence/112.webp
+https://zelt.app/assets/img/home/hero/sequence/113.webp
+https://zelt.app/assets/img/home/hero/sequence/114.webp
+https://zelt.app/assets/img/home/hero/sequence/115.webp
+https://zelt.app/assets/img/home/hero/sequence/116.webp
+https://zelt.app/assets/img/home/hero/sequence/117.webp
+https://zelt.app/assets/img/home/hero/sequence/118.webp
+ `;

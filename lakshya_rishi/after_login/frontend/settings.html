@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modern Profile Page with Interactive Settings</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    height: 100vh;
+    background: #f0f2f5;
+    color: #333;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #1f2937;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    box-shadow: 2px 0 8px rgb(0 0 0 / 0.1);
+  }
+
+  .sidebar button {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    font-size: 16px;
+    padding: 20px 30px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+    border-left: 4px solid transparent;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .sidebar button:hover {
+    background: #374151;
+    color: #fff;
+    border-left: 4px solid #3b82f6;
+  }
+
+  .sidebar button.active {
+    background: #2563eb;
+    color: #fff;
+    border-left: 4px solid #1e40af;
+  }
+
+  /* Main content */
+  .content {
+    flex-grow: 1;
+    padding: 40px 50px;
+    overflow-y: auto;
+  }
+
+  /* Card style for sections */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 0.1);
+    max-width: 700px;
+    padding: 30px 40px;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 0.02em;
+  }
+
+  /* Profile display */
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .field-value {
+    font-size: 18px;
+    color: #111827;
+    background: #f9fafb;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+    user-select: text;
+  }
+
+  /* Settings toggles */
+  .settings-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .settings-toggle input[type="checkbox"] {
+    margin-right: 14px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  .settings-toggle label {
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Save button */
+  .save-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-weight: 600;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .save-btn:hover {
+    background-color: #1e40af;
+  }
+
+  /* Logout section */
+  .logout-section p {
+    font-size: 16px;
+    color: #dc2626;
+    margin-bottom: 25px;
+  }
+
+  .logout-btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    background-color: #dc2626;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .logout-btn:hover {
+    background-color: #b91c1c;
+  }
+
+  /* Scrollbar style for content */
+  .content::-webkit-scrollbar {
+    width: 8px;
+  }
+  .content::-webkit-scrollbar-thumb {
+    background-color: #a1a1aa;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="sidebar" role="navigation" aria-label="Main navigation">
+    <button id="btn-profile" class="active" aria-controls="content-area" aria-selected="true">Profile</button>
+    <button id="btn-settings" aria-controls="content-area" aria-selected="false">Settings</button>
+    <button id="btn-logout" aria-controls="content-area" aria-selected="false">Logout</button>
+  </nav>
+
+  <main class="content" id="content-area" tabindex="0" role="main" aria-live="polite">
+    <!-- Dynamic content loads here -->
+  </main>
+
+<!--firebase connection ke liye script module ka code dala hai -->
+
+<script type="module">
+ import { auth, db, firebaseOnAuthStateChanged, firebaseDoc, firebaseGetDoc } from '../../login_page/firebase-config.js';
+
+
+  import { signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+  const contentArea = document.getElementById('content-area');
+  const buttons = document.querySelectorAll('.sidebar button');
+
+  // Default user data
+  let userData = {
+    name: "",
+    email: "",
+  
+  };
+
+  // User settings data
+  let userSettings = {
+    darkMode: false,
+    notifications: true,
+    autoUpdate: true
+  };
+
+  // Listen for auth state changes
+  firebaseOnAuthStateChanged(auth, async (user) => {
+    if (user) {
+      // Fetch email from Firebase Auth
+      userData.email = user.email;
+
+      // Fetch name from Firestore
+      const userDocRef = firebaseDoc(db, "users", user.uid);
+      const userSnap = await firebaseGetDoc(userDocRef);
+
+      if (userSnap.exists()) {
+    const data = userSnap.data();
+    userData.name = data.fullName || data.name || user.displayName || "New User"; 
+   
+} else {
+    userData.name = user.displayName || "New User";
+}
+
+
+      // Render profile after fetching data
+      contentArea.innerHTML = renderProfile();
+    } else {
+      // Redirect if not logged in
+      window.location.href = "login.html";
+    }
+  });
+
+  // Render Profile content
+  function renderProfile() {
+    return `
+      <section class="card" aria-label="User profile information">
+        <h2>Profile</h2>
+        <div class="field">
+          <div class="field-label">Name</div>
+          <div class="field-value" tabindex="0">${userData.name}</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Email</div>
+          <div class="field-value" tabindex="0">${userData.email}</div>
+        </div>
+      </section>
+    `;
+  }
+
+  // Render Settings content
+  function renderSettings() {
+    return `
+      <section class="card" aria-label="User settings">
+        <h2>Settings</h2>
+        <div class="settings-toggle">
+          <input type="checkbox" id="darkMode" ${userSettings.darkMode ? 'checked' : ''} />
+          <label for="darkMode">Enable Dark Mode</label>
+        </div>
+        <div class="settings-toggle">
+          <input type="checkbox" id="notifications" ${userSettings.notifications ? 'checked' : ''} />
+          <label for="notifications">Email Notifications</label>
+        </div>
+        <div class="settings-toggle">
+          <input type="checkbox" id="autoUpdate" ${userSettings.autoUpdate ? 'checked' : ''} />
+          <label for="autoUpdate">Auto Update</label>
+        </div>
+        <button class="save-btn" id="saveSettingsBtn">Save Settings</button>
+      </section>
+    `;
+  }
+
+  // Render Logout content
+  function renderLogout() {
+    return `
+      <section class="card logout-section" aria-label="Logout confirmation">
+        <h2>Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <button class="logout-btn" id="confirmLogout">Logout</button>
+      </section>
+    `;
+  }
+
+  // Update active button
+  function updateActiveButton(selectedBtn) {
+    buttons.forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    });
+    selectedBtn.classList.add('active');
+    selectedBtn.setAttribute('aria-selected', 'true');
+  }
+
+  // Sidebar button event listeners
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      updateActiveButton(btn);
+
+      switch (btn.id) {
+        case 'btn-profile':
+          contentArea.innerHTML = renderProfile();
+          break;
+        case 'btn-settings':
+          contentArea.innerHTML = renderSettings();
+          break;
+        case 'btn-logout':
+          contentArea.innerHTML = renderLogout();
+          document.getElementById('confirmLogout').addEventListener('click', async () => {
+            await signOut(auth);
+            window.location.href = "login.html";
+          });
+          break;
+      }
+      contentArea.focus();
+    });
+  });
+</script>
+
+
+</body>
+</html>
+

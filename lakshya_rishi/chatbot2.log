@@ -1,0 +1,5 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\nimay\\OneDrive\\Desktop\\lakshya_rishi\\after_login\\frontend']
+INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+INFO:     Started reloader process [12808] using StatReload
+ERROR:    Error loading ASGI app. Could not import module "main".
+INFO:     Stopping reloader process [12808]
