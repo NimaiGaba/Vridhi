@@ -143,14 +143,14 @@ npm install
 **Terminal A: Forecast,Stock Data and Chatbot (FastAPI)**
 
 ```bash
-
+cd lakshya_rishi
 uvicorn connect:app --reload
 ```
 
 **Terminal B: News API (Node.js)**
 
 ```bash
-cd backend
+ cd .\lakshya_rishi\backend\
 node server.js
 ```
 
