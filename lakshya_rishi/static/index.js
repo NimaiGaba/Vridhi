@@ -155,10 +155,10 @@ window.addEventListener("resize", function () {
 
 function files(index) {
   const frameNumber = (index + 1).toString().padStart(3, '0'); // "001", "002", etc.
-  return `frames/ezgif-frame-${frameNumber}.jpg`;
+  return `/static/frames/ezgif-frame-${frameNumber}.jpg`;
 }
 
-const frameCount = 162;
+const frameCount = 160;
 
 
 const images = [];

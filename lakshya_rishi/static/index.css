@@ -54,18 +54,21 @@ html, body {
       z-index: 100;
       display: flex;
       justify-content: center;
+      
    
     }
     
     nav a {
       font-family: "Comic Sans MS";
-      color: rgb(0, 0, 0);
+      color: rgb(242, 210, 53);
+   
       text-decoration: none;
       margin: 0 20px;
       font-weight: bold;
       padding: 5px 10px;
       border-radius: 5px;
       transition: all 0.3s ease;
+      
     }
     
     nav a:hover {
@@ -484,8 +487,9 @@ canvas {
     top: 38%;
     font-weight: 500;
     left: 50%;
+    color: rgb(242, 210, 53);
     transform: translate(-50%, -50%);
-    text-shadow: 0 5px 15px rgba(248, 132, 1, 0.4);
+    text-shadow: 0 5px 15px rgb(3, 3, 3);
         font-family: "Comic Sans MS";
 
 }
@@ -499,7 +503,8 @@ canvas {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
-    color: #565656;
+    color: #ffffff;
+    text-shadow: 0 5px 15px rgb(3, 3, 3);
     font-family: "Comic Sans MS";
     
 }
@@ -508,7 +513,7 @@ canvas {
     position: relative;
     height: 100vh;
     width: 100vw;
-    background-color: #E5E1DC;
+    background-color: #000000;
 }
 
 #page1>h1 {
@@ -534,7 +539,7 @@ canvas {
     font-size: 35px;
     font-weight: 400;
     white-space: nowrap;
-    color: #565656;
+    color: #ffffff;
     z-index: 99;
         font-family: "Comic Sans MS";
 
@@ -567,7 +572,7 @@ canvas {
     width: 100vw;
     background-color: transparent;
     text-align: center;
-    background-color: #E4E0DD;
+   background-color: #E4E0DD;
 }
 
 #page4>h1 {
@@ -784,7 +789,7 @@ canvas {
   position: absolute;
   background-color: #111;
   min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0px 8px 16px rgba(251, 251, 251, 0.3);
   z-index: 1;
   border-radius: 6px;
   overflow: hidden;
