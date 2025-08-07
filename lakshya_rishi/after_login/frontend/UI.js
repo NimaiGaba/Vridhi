@@ -301,8 +301,16 @@ document.getElementById('loadMoreStoriesBtn').addEventListener('click', () => {
 // FIXED Place Order Function
 async function placeOrderFromChart(context = "charting") {
   const symbolInputId = context === "search" ? "chartSymbol" : "chartingTickerInput";
+  const quantityInputId = context === "search" ? "chartQuantity" : "chartQuantity"; // ❌ THIS IS WRONG
+  // The issue is here: you're using the same ID, but both sections have elements with the same ID.
+
+  const quantity = parseFloat(
+    context === "search"
+      ? document.querySelector('#searchResultSection #chartQuantity').value
+      : document.querySelector('#charting #chartQuantity').value
+  );
+
   const symbol = document.getElementById(symbolInputId).value.trim().toUpperCase();
-  const quantity = parseFloat(document.getElementById('chartQuantity').value);
   const orderType = document.getElementById('chartType').value;
   const now = new Date().toLocaleString();
 
@@ -332,11 +340,11 @@ async function placeOrderFromChart(context = "charting") {
 
     alert(`${orderType} Order placed for ${symbol} at $${price.toFixed(2)}`);
     loadPortfolio();
+    await savePortfolioToFirestore();
   } catch (err) {
     console.error("Error placing order:", err);
     alert('Error placing order');
   }
-  await savePortfolioToFirestore();
 }
 
 // Profile Dropdown Toggle
